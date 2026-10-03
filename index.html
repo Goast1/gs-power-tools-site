@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>G's Power Tools — private, local Chrome extension bundle</title>
+<meta name="description" content="Six browser tools that run entirely on your own computer — transcribe, translate, OCR, read aloud, guard pastes, and blur your screen. Nothing ever leaves your PC except a one-time license check. $25 once, no subscription." />
+<style>
+  :root {
+    --bg: #f3ede2; --fg: #2b2723; --faint: #8a8074; --rule: #d9cfbf; --accent: #b23a2e; --card: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #1a1816; --fg: #e6dfd3; --faint: #948a7c; --rule: #38332c; --accent: #e0695c; --card: #221f1b; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --bg: #1a1816; --fg: #e6dfd3; --faint: #948a7c; --rule: #38332c; --accent: #e0695c; --card: #221f1b; color-scheme: dark; }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg); margin: 0;
+    font: 17px/1.6 "Iowan Old Style", Charter, Constantia, Georgia, serif;
+  }
+  main { max-width: 760px; margin-inline: auto; padding: 0 20px 80px; }
+  a { color: var(--accent); }
+
+  header { padding: 64px 20px 32px; text-align: center; }
+  .logo { font-weight: 700; font-size: 32px; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .logo span { color: var(--accent); }
+  .tagline { font-size: 20px; color: var(--faint); max-width: 520px; margin: 0 auto 28px; }
+  .price-pill {
+    display: inline-flex; align-items: baseline; gap: 6px; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 999px; padding: 8px 20px; font-size: 15px; color: var(--faint); margin-bottom: 28px;
+  }
+  .price-pill b { color: var(--fg); font-size: 18px; }
+  .cta {
+    display: inline-block; background: var(--accent); color: #fff9f3; text-decoration: none;
+    font-size: 17px; font-weight: 600; padding: 14px 34px; border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .cta:hover { opacity: .92; }
+  .sub-cta { display: block; margin-top: 10px; font-size: 13px; color: var(--faint); }
+
+  .shot { margin: 48px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); box-shadow: 0 20px 50px -20px rgba(0,0,0,.35); }
+  .shot img { display: block; width: 100%; }
+  .shot-caption { text-align: center; font-size: 13px; color: var(--faint); margin-top: 10px; font-style: italic; }
+
+  h2 { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 56px 0 24px; text-align: center; }
+
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .tools { grid-template-columns: 1fr; } }
+  .tool { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; }
+  .tool .name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .tool .name span { color: var(--accent); }
+  .tool p { margin: 0; font-size: 14.5px; color: var(--faint); }
+
+  .trust { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 28px 28px; margin-top: 56px; }
+  .trust h3 { margin: 0 0 12px; font-size: 16px; }
+  .trust p { margin: 0 0 10px; font-size: 15px; color: var(--faint); }
+  .trust p:last-child { margin-bottom: 0; }
+  .trust code { font: 13px/1.5 "Cascadia Mono", Consolas, monospace; background: color-mix(in srgb, var(--fg) 8%, transparent); padding: 1px 6px; border-radius: 4px; }
+
+  .faq { margin-top: 56px; }
+  .faq details { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 15.5px; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:before { content: '+ '; color: var(--accent); }
+  .faq details[open] summary:before { content: '– '; }
+  .faq p { color: var(--faint); font-size: 15px; margin: 10px 0 0; }
+
+  footer { text-align: center; margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--faint); }
+  footer a { color: var(--faint); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo">G<span>.</span> Power Tools</div>
+    <p class="tagline">Six browser tools that run entirely on your own computer. Nothing you transcribe, translate, OCR, read, or paste is ever uploaded — anywhere.</p>
+    <div class="price-pill">one-time unlock &nbsp;·&nbsp; <b>$25</b> &nbsp;·&nbsp; no subscription</div>
+    <br />
+    <a class="cta" href="https://baselartistry.gumroad.com/l/mhihm">Get G's Power Tools →</a>
+    <span class="sub-cta">Pay once on Gumroad, install from the Chrome Web Store, unlock with your key.</span>
+  </header>
+
+  <div class="shot">
+    <img src="assets/screenshot-light.png" alt="Live transcript side panel showing a tab and microphone conversation with timestamps" />
+  </div>
+  <p class="shot-caption">The transcriber's side panel — live captions while you browse, light and dark.</p>
+
+  <h2>What's in the bundle</h2>
+  <div class="tools">
+    <div class="tool">
+      <div class="name">Transcriber<span>.</span></div>
+      <p>Live captions from any tab's audio, your mic, or both. Exports to .md, .srt, .vtt, .docx, .pdf. Optional GPU mode for better English accuracy.</p>
+    </div>
+    <div class="tool">
+      <div class="name">Translator<span>.</span></div>
+      <p>Right-click any selected text, get a real translation back in under a second — safe for anything you can't put through a cloud translator.</p>
+    </div>
+    <div class="tool">
+      <div class="name">OCR<span>.</span></div>
+      <p>Right-click any image, or drag-select part of your screen, and get real, copyable text out of it.</p>
+    </div>
+    <div class="tool">
+      <div class="name">Read-aloud<span>.</span></div>
+      <p>Right-click a page or selection and have it read to you, using the best voice already on your system.</p>
+    </div>
+    <div class="tool">
+      <div class="name">Paste guard<span>.</span></div>
+      <p>Quietly warns you before you paste something sensitive into a website — including AI chat tools.</p>
+    </div>
+    <div class="tool">
+      <div class="name">Blur<span>.</span></div>
+      <p>Drag a box over anything on the page before a screen share. A real, opaque mask — not a cosmetic effect.</p>
+    </div>
+  </div>
+
+  <div class="trust">
+    <h3>Why "100% local" actually means it here</h3>
+    <p>Every tool runs on-device using on-device models (Whisper/Moonshine for speech, opus-mt for translation, tesseract.js for OCR). The <strong>only</strong> network call anywhere in the extension is a one-time check to Gumroad to verify your license key when you unlock it — everything else, forever, stays on your machine.</p>
+    <p>No account, no telemetry, no crash reporting unless you opt in (and even then, it's an error message and a version number — never page content).</p>
+    <p>Full privacy policy: <a href="https://gist.github.com/Goast1/0c831ab066bf4eec96b907c1c3d8c039">read it here</a>.</p>
+  </div>
+
+  <div class="faq">
+    <h2 style="text-align:left; margin-top:0;">Questions</h2>
+    <details>
+      <summary>Why pay for something that runs locally — what's the $25 for?</summary>
+      <p>Building and maintaining six tools, picking and tuning the right models for CPU-only hardware, and keeping it working across Chrome updates. The one-time price keeps it sustainable without ads, telemetry, or a subscription.</p>
+    </details>
+    <details>
+      <summary>Does it work offline?</summary>
+      <p>Yes, after the first use of each tool (which downloads that tool's model once and caches it). OCR ships fully bundled, so it needs no download at all.</p>
+    </details>
+    <details>
+      <summary>Which browsers does it support?</summary>
+      <p>Chrome, Brave, Edge, and any other Chromium-based browser that supports Manifest V3 extensions.</p>
+    </details>
+    <details>
+      <summary>Is the accuracy actually good?</summary>
+      <p>The transcriber uses Moonshine/Whisper (the same families used by much more expensive tools), with an optional GPU tier for a further accuracy bump on English. Translation uses per-language opus-mt models, not a generic lightweight model.</p>
+    </details>
+    <details>
+      <summary>Can I get a refund?</summary>
+      <p>Yes — Gumroad handles the purchase and supports refunds through their normal process.</p>
+    </details>
+  </div>
+
+  <footer>
+    Questions: <a href="mailto:gpowertools@proton.me">gpowertools@proton.me</a>
+    &nbsp;·&nbsp; <a href="https://gist.github.com/Goast1/0c831ab066bf4eec96b907c1c3d8c039">Privacy policy</a>
+  </footer>
+</main>
+</body>
+</html>
